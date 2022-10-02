@@ -21,3 +21,12 @@
 .hidden {
     display: none;
 }
+
+h1 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
