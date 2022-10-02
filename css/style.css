@@ -8,8 +8,14 @@
     --backgroud-color:#fcf2fb;
 }
 
-.container {
-    margin: auto;
+#start-container,#question-container,#intl-container,#ranking-container {
+    margin: 150px auto;
+    width: 50vw;
+    height: 500px;
+    text-align: center;
+    border: 2px double;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    padding: 50px;
 }
 
 .hidden {
