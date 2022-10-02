@@ -11,3 +11,7 @@
 .container {
     margin: auto;
 }
+
+.hidden {
+    display: none;
+}
