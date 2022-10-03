@@ -1,6 +1,5 @@
 var startBtn = document.getElementById("start-btn");
 var startContainerEl = document.getElementById("start-container");
-var runningQuestion = 0;
 var questionContainerEl =document.getElementById("question-container");
 var secondLeft = 10;
 var timeEl = document.getElementById("timer");
@@ -62,6 +61,35 @@ function generateQuestion(){
 }
 }
 
+let runningQuestion = 0;
+let q = question[runningQuestion];
+
+choice1.addEventListener("click", checkAnswer);
+choice2.addEventListener("click", checkAnswer);
+choice3.addEventListener("click", checkAnswer);
+choice4.addEventListener("click", checkAnswer);
+
+function checkAnswer(event) {
+    // choiceBtn = event.target;
+    console.log(event.target)
+    // if (choiceValue.matches('.choice')){
+    var choiceValue = event.target.dataset.answer;
+    console.log(choiceValue)
+    if (choiceValue == "correct") {
+        // secondLeft -= 10;
+        // result.innerHTML = "Wrong!"
+        // runningQuestion++;
+        result.textContent = "Correct!"
+    } else {
+        secondLeft -= 10;
+        // result.innerHTML = "Wrong!"
+        // q++;
+        result.textContent = "Wrong!"
+    }
+    runningQuestion++;
+    generateQuestion();
+    }
+    
 //go to next question
 function nextQuestion(){
     nextQuestion(nextQuestion[runningQuestion + 1]);
