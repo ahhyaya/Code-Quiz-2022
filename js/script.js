@@ -1,7 +1,7 @@
 var startBtn = document.getElementById("start-btn");
 var startContainerEl = document.getElementById("start-container");
 var questionContainerEl =document.getElementById("question-container");
-var secondLeft = 10;
+var secondLeft = 75;
 var timeEl = document.getElementById("timer");
 var intlContainerEl = document.getElementById("intl-container");
 var scoreEl = document.getElementById("final-score");
@@ -68,8 +68,13 @@ let runningQuestion = 0;
 let q = question[runningQuestion];
 
 
+choice1.addEventListener("click", checkAnswer);
+choice2.addEventListener("click", checkAnswer);
+choice3.addEventListener("click", checkAnswer);
+choice4.addEventListener("click", checkAnswer);
 
 function checkAnswer(event) {
+    
     var choiceValue = event.target.dataset.answer;
     if (choiceValue == "correct") {
         result.textContent = "Correct!"
@@ -104,8 +109,5 @@ function startQuiz() {
     checkAnswer();
     nextQuestion();
 }
-choice1.addEventListener("click", checkAnswer);
-choice2.addEventListener("click", checkAnswer);
-choice3.addEventListener("click", checkAnswer);
-choice4.addEventListener("click", checkAnswer);
+
 startBtn.addEventListener("click",startQuiz);
