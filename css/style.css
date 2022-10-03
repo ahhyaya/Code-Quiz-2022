@@ -86,14 +86,16 @@ p {
 .btn:hover {
     background-color: rgb(222, 152, 30);
     /* box-shadow: inset 0px 10px 8px */
+    box-shadow: 0 5px #999
     rgba(226, 164, 57, 0.796), 0 0 15px
     rgba(226, 164, 57, 0.796);
     border: black;
-    box-shadow: 0 5px #999;
+    
 }
 
 .btn:active {
     background-color:rgb(222, 152, 30);
     box-shadow: 0 2px #666;
     transform: translateY(4px);
+    color: rgba(0, 0, 0, 0.732);
   }
