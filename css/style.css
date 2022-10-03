@@ -6,6 +6,7 @@
 
 :root {
     --backgroud-color:#fcf2fb;
+    --button-color-nohover:rgb(242, 153, 0);
 }
 
 #start-container,#question-container,#intl-container,#ranking-container {
@@ -37,4 +38,19 @@ p {
     font-weight: bold;
     border-radius: 10px;
     background-color: var(--backgroud-color);
+}
+
+.start-btn {
+    width:auto;
+    height: auto;
+    font-weight: bold;
+    padding: 10px 15px 10px 15px;
+    border-radius: 10px;
+    background-color: var(--button-color-nohover);
+    display: block;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-left: auto;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
 }
