@@ -30,3 +30,11 @@ p {
     font-family: Arial, Helvetica, sans-serif;
   }
 
+.start-quiz {
+    height: 35px;
+    width:auto;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: var(--backgroud-color);
+}
