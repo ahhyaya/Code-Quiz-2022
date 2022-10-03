@@ -11,7 +11,8 @@ const choice2 = document.getElementById("2");
 const choice3 = document.getElementById("3");
 const choice4 = document.getElementById("4");
 var result = document.querySelector(".result");
-
+var nextBtn = document.getElementById("choice-btn");
+var choicesEl = document.getElementById("choices");
 
 
 
@@ -88,8 +89,13 @@ function checkAnswer(event) {
     }
     
 //go to next question
+choice1.addEventListener("click", nextQuestion);
+choice2.addEventListener("click", nextQuestion);
+choice3.addEventListener("click", nextQuestion);
+choice4.addEventListener("click", nextQuestion);
+
 function nextQuestion(){
-    nextQuestion(nextQuestion[runningQuestion + 1]);
+    generateQuestion(question[runningQuestion + 1]);
 }
 
 //save current user score
@@ -107,7 +113,7 @@ function startQuiz() {
     setTimer();
     generateQuestion();
     checkAnswer();
-    nextQuestion();
+    // nextQuestion();
 }
 
 startBtn.addEventListener("click",startQuiz);
