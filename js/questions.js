@@ -1,4 +1,4 @@
-let questions = [
+var question = [
     {
         question:'Javascript is an _______ language?',
         choice1:'Object-Oriented',

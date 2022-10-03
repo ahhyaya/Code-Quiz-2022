@@ -28,8 +28,8 @@ function setTimer() {
 
 //generate question
 function generateQuestion(){
-    if (runningQuestion <=10) {
-        var q = questions[runningQuestion];
+    if (runningQuestion <= 10) {
+        var q = question[runningQuestion];
     
         questions.innerHTML = "<p>"+ q.questions +"</p>";
     

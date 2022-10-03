@@ -24,17 +24,18 @@
         <h1>Timed Coding Quiz Challenge</h1><br>
         <p>Try to answer the following code-related questions within the time limit.</p>
         <p>Keep in mind that incorrect answers will penalize your score/time by 10 seconds!</p>
-        <button class = "start-btn btn">Start Quiz</button>
+        <button id = "start-btn" class = "start-btn btn">Start Quiz</button>
     </section>
 
     <!-- question page -->
-    <section class = "questions hidden" id = "question-container questions">
-        <h1>Question</h1>
+    <section class = "hidden" id = "question-container">
+        <h1 id="questions">Question</h1>
+        <div id = "choices">
         <button class = "choice btn">Choice 1</button>
         <button class = "choice btn">Choice 2</button>
         <button class = "choice btn">Choice 3</button>
         <button class = "choice btn">Choice 4</button>
-
+        </div>
     </section>
 
     <!-- check answer -->
@@ -45,7 +46,7 @@
     <!-- save score after quiz end -->
     <section class = "intl hidden" id = "intl-container">
         <form class = "submit">
-            <h2 class = "final-score"></h2>
+            <h2 id = "final-score" class = "final-score"></h2>
                 <label class = "intl-label">Please Enter Your Initial: </label>
             <input type="text" id = "intl" placeholder="Enter you initial">
             <button class = "submit-btn btn">Submit</button>
@@ -61,7 +62,7 @@
         </div>
     </section>
 
-    <!-- <script src = "./js/questions.js"></script> -->
+    <script src = "./js/questions.js"></script>
     <script src = "./js/script.js"></script>
 </body>
 </html>
