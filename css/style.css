@@ -8,6 +8,17 @@
     --backgroud-color:#fcf2fb;
     --button-color-nohover:rgb(242, 153, 0);
 }
+.container {
+    margin: 150px auto;
+    width: 50vw;
+    height: 500px;
+    text-align: center;
+    border: 2px double;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    padding: 50px;
+    background-color: var(--backgroud-color);
+    border-radius: 15px;
+}
 
 header {
     display: flex;
@@ -16,7 +27,9 @@ header {
     height: 10vh;
 }
 
-#header-container,#start-container,#question-container,#intl-container,#ranking-container {
+
+
+/* #start-container,#question-container,#intl-container,#ranking-container {
     margin: 150px auto;
     width: 50vw;
     height: 500px;
@@ -24,7 +37,7 @@ header {
     border: 2px double;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     padding: 50px;
-}
+} */
 
 .hidden {
     display: none;
