@@ -17,6 +17,9 @@ var submitBtn = document.getElementById("submit-btn");
 var rankingEl = document.getElementById("ranking-container");
 var viewRankingEl = document.getElementById("view-score");
 var goBackBtn = document.getElementById("restart-btn");
+var clearBtn = document.getElementById("clear-btn");
+
+
 
 // timer
 function setTimer() {
@@ -158,5 +161,7 @@ function startQuiz() {
 goBackBtn.addEventListener("click", function(){
     window.location.reload();
 })
-
+clearBtn.addEventListener("click", function(){
+    localStorage.clear();
+})
 startBtn.addEventListener("click",startQuiz);
