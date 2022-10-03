@@ -14,7 +14,8 @@ var result = document.querySelector(".result");
 var nextBtn = document.getElementById("choice-btn");
 var choicesEl = document.getElementById("choices");
 var submitBtn = document.getElementById("submit-btn");
-
+var rankingEl = document.getElementById("ranking-container");
+var viewRankingEl = document.getElementById("view-score");
 
 
 // timer
@@ -105,6 +106,24 @@ function saveScore(){
     scoreEl.textContent = "You final score is: " + secondLeft;
 }
 
+//display players intl with score ranking
+function ranking(initials) {
+    rankingEl.classList.remove("hidden");
+    intlContainerEl.classList.add("hidden");
+    startContainerEl.classList.add("hidden");
+    questionContainerEl.classList.add("hidden");
+    if (typeof initials == "string") {
+        var score = {
+            initials,secondLeft
+        }
+        scores.push(score);
+    }
+    localStorage.setItem("scores", JSON.stringify(scores));
+}
+
+// view high score
+    viewRankingEl.addEventListener("click", ranking);
+    
 //submit to save to local storage
 submitBtn.addEventListener("click", function(event) {
     event.preventDefault();
