@@ -18,7 +18,7 @@ var rankingEl = document.getElementById("ranking-container");
 var viewRankingEl = document.getElementById("view-score");
 var goBackBtn = document.getElementById("restart-btn");
 var clearBtn = document.getElementById("clear-btn");
-
+var scores = JSON.parse(localStorage.getItem("scores")) || [];
 
 
 // timer
@@ -109,6 +109,24 @@ function saveScore(){
     scoreEl.textContent = "You final score is: " + secondLeft;
 }
 
+
+//load final scores to view high score list
+function loadScores() {
+    if (!saveScores){
+        return false;
+    }
+
+    savedScores = JSON.parse(saveScores);
+    var initial = document.querySelector("intl").value;
+    var newScore = {
+        score: secondLeft,
+        initial: initial
+    }
+
+    savedScores.push(newScore);
+    }
+
+
 //display players intl with score ranking
 function ranking(initials) {
     rankingEl.classList.remove("hidden");
@@ -125,25 +143,16 @@ function ranking(initials) {
 }
 
 // view high score
-    viewRankingEl.addEventListener("click", ranking);
+viewRankingEl.addEventListener("click", ranking);
 
 //submit to save to local storage
 submitBtn.addEventListener("click", function(event) {
     event.preventDefault();
     var initials = document.querySelector("intl"),value;
-    ranking();
-})
+    ranking(initials); 
+});
 
 
-//load final scores to view high score list
-function loadScores() {
-    var savedScore = JSON.parse(saveScore);
-    var initial = document.querySelector("intl").value;
-    var newScore = {
-        score: secondLeft,
-        initial: initial
-    }
-    }
 
 
 
