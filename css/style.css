@@ -115,3 +115,12 @@ p {
     transform: translateY(4px);
     color: rgba(0, 0, 0, 0.732);
   }
+
+  .result {
+    color: rgb(255, 0, 0);
+    text-shadow:12px -2px 7px black;
+    font-weight:900;
+    font-family: fantasy;
+    font-size: 35px;
+    margin-top: 15px;
+  }
