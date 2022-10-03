@@ -16,7 +16,7 @@ var choicesEl = document.getElementById("choices");
 var submitBtn = document.getElementById("submit-btn");
 var rankingEl = document.getElementById("ranking-container");
 var viewRankingEl = document.getElementById("view-score");
-
+var goBackBtn = document.getElementById("restart-btn");
 
 // timer
 function setTimer() {
@@ -123,7 +123,7 @@ function ranking(initials) {
 
 // view high score
     viewRankingEl.addEventListener("click", ranking);
-    
+
 //submit to save to local storage
 submitBtn.addEventListener("click", function(event) {
     event.preventDefault();
@@ -153,5 +153,10 @@ function startQuiz() {
     checkAnswer();
     // nextQuestion();
 }
+
+
+goBackBtn.addEventListener("click", function(){
+    window.location.reload();
+})
 
 startBtn.addEventListener("click",startQuiz);
