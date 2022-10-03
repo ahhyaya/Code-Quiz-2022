@@ -1,7 +1,7 @@
 var startBtn = document.getElementById("start-btn");
 var startContainerEl = document.getElementById("start-container");
 var questionContainerEl =document.getElementById("question-container");
-var secondLeft = 75;
+var secondLeft = 5;
 var timeEl = document.getElementById("timer");
 var intlContainerEl = document.getElementById("intl-container");
 var scoreEl = document.getElementById("final-score");
@@ -18,7 +18,7 @@ var rankingEl = document.getElementById("ranking-container");
 var viewRankingEl = document.getElementById("view-score");
 var goBackBtn = document.getElementById("restart-btn");
 var clearBtn = document.getElementById("clear-btn");
-var scores = JSON.parse(localStorage.getItem("scores")) || [];
+var finalScore = JSON.parse(localStorage.getItem("final-score")) || [];
 
 startBtn.addEventListener("click",startQuiz);
 // timer
@@ -118,25 +118,38 @@ function nextQuestion(){
 function saveScore(){
     questionContainerEl.classList.add("hidden");
     intlContainerEl.classList.remove("hidden");
+    if (scoreEl >= 0){
     scoreEl.textContent = "You final score is: " + secondLeft;
+    } else {
+        scoreEl.textContent = "You final score is: 0 !";
+    }
+    timeEl.textContent = "Time: 0";
 }
 
 
 //load final scores to view high score list
 function loadScores() {
-    if (!saveScores){
+    if (!finalScore){
         return false;
     }
 
-    savedScores = JSON.parse(saveScores);
     var initial = document.querySelector("intl").value;
+    finalScore = JSON.parse(finalScore) || {};
+    if (finalScore[initial] >= 0) {
     var newScore = {
         score: secondLeft,
         initial: initial
     }
-
-    savedScores.push(newScore);
-    }
+}else {
+    finalScore[initial] = 0;
+}
+    finalScore.push(newScore);
+    finalScore.forEach(score => {
+        initialField.innerText = score.initial;
+        scoreField.innerText = score.score;
+    })
+   localStorage.setItem('highscores', JSON.stringify(highscores));
+ }
 
 
 //display players intl with score ranking
@@ -149,9 +162,9 @@ function ranking(initials) {
         var score = {
             initials,secondLeft
         }
-        scores.push(score);
+        finalScore.push(score);
     }
-    localStorage.setItem("scores", JSON.stringify(scores));
+    localStorage.setItem("finalScore", JSON.stringify(finalScore));
 }
 
 
