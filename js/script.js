@@ -6,7 +6,10 @@ var timeEl = document.getElementById("timer");
 var intlContainerEl = document.getElementById("intl-container");
 var scoreEl = document.getElementById("final-score");
 var questions = document.getElementById("questions");
-
+const choice1 = document.getElementById("1");
+const choice2 = document.getElementById("2");
+const choice3 = document.getElementById("3");
+const choice4 = document.getElementById("4");
 
 
 
@@ -30,7 +33,7 @@ function generateQuestion(){
     if (runningQuestion <= 10) {
         var q = question[runningQuestion];
     
-        questions.innerHTML = "<p>"+ q.questions +"</p>";
+        questions.innerHTML = "<p>"+ q.question +"</p>";
     
         choice1.innerHTML = q.choice1;
         if (q.choice1 == q.correct) {
@@ -64,30 +67,19 @@ function generateQuestion(){
 let runningQuestion = 0;
 let q = question[runningQuestion];
 
-choice1.addEventListener("click", checkAnswer);
-choice2.addEventListener("click", checkAnswer);
-choice3.addEventListener("click", checkAnswer);
-choice4.addEventListener("click", checkAnswer);
+
 
 function checkAnswer(event) {
-    // choiceBtn = event.target;
-    console.log(event.target)
-    // if (choiceValue.matches('.choice')){
     var choiceValue = event.target.dataset.answer;
-    console.log(choiceValue)
     if (choiceValue == "correct") {
-        // secondLeft -= 10;
-        // result.innerHTML = "Wrong!"
-        // runningQuestion++;
         result.textContent = "Correct!"
     } else {
         secondLeft -= 10;
-        // result.innerHTML = "Wrong!"
-        // q++;
+        q++;
         result.textContent = "Wrong!"
     }
     runningQuestion++;
-    generateQuestion();
+    nextQuestion();
     }
     
 //go to next question
@@ -109,7 +101,11 @@ function startQuiz() {
     questionContainerEl.classList.remove("hidden");
     setTimer();
     generateQuestion();
+    checkAnswer();
     nextQuestion();
 }
-
+choice1.addEventListener("click", checkAnswer);
+choice2.addEventListener("click", checkAnswer);
+choice3.addEventListener("click", checkAnswer);
+choice4.addEventListener("click", checkAnswer);
 startBtn.addEventListener("click",startQuiz);
