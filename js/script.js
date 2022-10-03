@@ -105,6 +105,17 @@ function saveScore(){
     scoreEl.textContent = "You final score is: " + secondLeft;
 }
 
+//load final scores to view high score list
+function loadScores() {
+    var savedScore = JSON.parse(saveScore);
+    var initial = document.querySelector("intl").value;
+    var newScore = {
+        score: secondLeft,
+        initial: initial
+    }
+    }
+
+
 
 //startQuiz
 function startQuiz() {
