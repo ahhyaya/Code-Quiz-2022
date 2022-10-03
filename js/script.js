@@ -13,7 +13,7 @@ const choice4 = document.getElementById("4");
 var result = document.querySelector(".result");
 var nextBtn = document.getElementById("choice-btn");
 var choicesEl = document.getElementById("choices");
-
+var submitBtn = document.getElementById("submit-btn");
 
 
 
@@ -104,6 +104,14 @@ function saveScore(){
     intlContainerEl.classList.remove("hidden");
     scoreEl.textContent = "You final score is: " + secondLeft;
 }
+
+//submit to save to local storage
+submitBtn.addEventListener("click", function(event) {
+    event.preventDefault();
+    var initials = document.querySelector("intl"),value;
+    ranking();
+})
+
 
 //load final scores to view high score list
 function loadScores() {
