@@ -20,7 +20,7 @@ var goBackBtn = document.getElementById("restart-btn");
 var clearBtn = document.getElementById("clear-btn");
 var scores = JSON.parse(localStorage.getItem("scores")) || [];
 
-
+startBtn.addEventListener("click",startQuiz);
 // timer
 function setTimer() {
     var timerInterval = setInterval(function() {
@@ -32,6 +32,18 @@ function setTimer() {
         }
     }, 1000);
 }
+
+
+//startQuiz
+function startQuiz() {
+    startContainerEl.classList.add("hidden");
+    questionContainerEl.classList.remove("hidden");
+    setTimer();
+    generateQuestion();
+    checkAnswer();
+    // nextQuestion();
+}
+
 
 //generate question
 function generateQuestion(){
@@ -142,6 +154,9 @@ function ranking(initials) {
     localStorage.setItem("scores", JSON.stringify(scores));
 }
 
+
+
+
 // view high score
 viewRankingEl.addEventListener("click", ranking);
 
@@ -152,25 +167,12 @@ submitBtn.addEventListener("click", function(event) {
     ranking(initials); 
 });
 
-
-
-
-
-//startQuiz
-function startQuiz() {
-    startContainerEl.classList.add("hidden");
-    questionContainerEl.classList.remove("hidden");
-    setTimer();
-    generateQuestion();
-    checkAnswer();
-    // nextQuestion();
-}
-
-
 goBackBtn.addEventListener("click", function(){
     window.location.reload();
-})
+});
+
 clearBtn.addEventListener("click", function(){
     localStorage.clear();
-})
-startBtn.addEventListener("click",startQuiz);
+});
+
+
