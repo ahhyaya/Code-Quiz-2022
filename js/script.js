@@ -176,7 +176,7 @@ viewRankingEl.addEventListener("click", ranking);
 //submit to save to local storage
 submitBtn.addEventListener("click", function(event) {
     event.preventDefault();
-    var initials = document.querySelector("intl").value;
+    var initials = document.querySelector("input").value;
     ranking(initials); 
 });
 
