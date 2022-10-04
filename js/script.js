@@ -137,23 +137,24 @@ function loadScores() {
         return false;
     }
 
+    finalScore = JSON.parse(finalScore);
     var initial = document.querySelector("#intl").value;
     console.log(initial)
     // finalScore = JSON.parse(finalScore) || {}; 
-    if (finalScore[initial] >= 0) {
+    // if (finalScore[initial] >= 0) {
     var newScore = {
         score: secondLeft,
         initial: initial
     }
-}else {
-    finalScore[initial] = 0;
-}
+// }else {
+//     finalScore[initial] = 0;
+// }
     finalScore.push(newScore);
     finalScore.forEach(newScore => {
         intlField.innerText = newScore.initial;
         scoreField.innerText = newScore.score;
     })
-   localStorage.setItem('highscores', JSON.stringify(highscores));
+//    localStorage.setItem('highscores', JSON.stringify(highscores));
 }
 
 
