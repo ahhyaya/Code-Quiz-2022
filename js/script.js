@@ -42,7 +42,7 @@ function startQuiz() {
     questionContainerEl.classList.remove("hidden");
     setTimer();
     generateQuestion();
-    checkAnswer();
+    // checkAnswer();
     // nextQuestion();
 }
 
@@ -79,7 +79,7 @@ function generateQuestion(){
             choice4.dataset.answer = "wrong";
         }
         } else {
-            saveScore();
+       saveScore();
             
 }
 }
