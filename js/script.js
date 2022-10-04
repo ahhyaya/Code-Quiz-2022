@@ -96,14 +96,23 @@ function checkAnswer(event) {
 
     var choiceValue = event.target.dataset.answer;
     console.log(choiceValue)
-    if (choiceValue == "correct") {
-        result.textContent = "Correct!"
-    } else {
-        secondLeft -= 10;
-        result.textContent = "Wrong!"
+    if (runningQuestion < 9) {
+        if (choiceValue == "correct") {
+            result.textContent = "Correct!"
+        } else {
+            secondLeft -= 10;
+            result.textContent = "Wrong!"
+        }
+        runningQuestion++;
+        nextQuestion();
+    } else if (runningQuestion === 9 && secondLeft > 0) {
+        if (choiceValue == "correct") {
+            result.textContent = "Correct!"
+        } else {
+            result.textContent = "Wrong!"
+        }
+        saveScore();
     }
-    runningQuestion++;
-    nextQuestion();
 }
 
 
@@ -123,10 +132,11 @@ function saveScore() {
     questionContainerEl.classList.add("hidden");
     intlContainerEl.classList.remove("hidden");
     if (scoreEl >= 0) {
+        // clearInterval();
         scoreEl.textContent = "You final score is: " + secondLeft;
     } else {
         scoreEl.textContent = "You final score is: 0 !";
-        clearInterval();
+        // clearInterval();
         if (secondLeft < 0) {
             secondLeft = 0;
         }

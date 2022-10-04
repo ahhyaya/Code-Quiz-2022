@@ -16,6 +16,14 @@
 
 ![feature1](./assets/2.png)
 
+- showing final score list
+
+![feature1](./assets/3.png)
+
+- clear score record and restart function
+
+![feature1](./assets/4.png)
+
 ---
 ## Project Status
 Project is: _completed_ 
