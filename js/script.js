@@ -119,16 +119,22 @@ function nextQuestion() {
 
 //save current user score
 function saveScore() {
-
     clearInterval();
-
     questionContainerEl.classList.add("hidden");
     intlContainerEl.classList.remove("hidden");
-
     if (scoreEl >= 0) {
         scoreEl.textContent = "You final score is: " + secondLeft;
     } else {
         scoreEl.textContent = "You final score is: 0 !";
+        clearInterval();
+        if (secondLeft < 0) {
+            secondLeft = 0;
+        }
+        else {
+            secondLeft = secondLeft;
+        }
+        questionContainerEl.classList.add("hidden");
+        intlContainerEl.classList.remove("hidden");
     }
     timeEl.textContent = "Time: 0";
 
@@ -136,6 +142,7 @@ function saveScore() {
         questionContainerEl.classList.add("hidden");
         document.getElementById("final-score").textContent = "You final score is: " + secondLeft;
     }, 2000)
+
 }
 
 
