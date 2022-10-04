@@ -1,7 +1,7 @@
 var startBtn = document.getElementById("start-btn");
 var startContainerEl = document.getElementById("start-container");
 var questionContainerEl =document.getElementById("question-container");
-var secondLeft = 5;
+var secondLeft = 25;
 var timeEl = document.getElementById("timer");
 var intlContainerEl = document.getElementById("intl-container");
 var scoreEl = document.getElementById("final-score");
@@ -177,6 +177,7 @@ viewRankingEl.addEventListener("click", ranking);
 submitBtn.addEventListener("click", function(event) {
     event.preventDefault();
     var initials = document.querySelector("input").value;
+
     ranking(initials); 
 });
 
