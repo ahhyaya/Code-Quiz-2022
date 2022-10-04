@@ -96,11 +96,12 @@ choice4.addEventListener("click", checkAnswer);
 function checkAnswer(event) {
     
     var choiceValue = event.target.dataset.answer;
+    console.log(choiceValue)
     if (choiceValue == "correct") {
         result.textContent = "Correct!"
     } else {
         secondLeft -= 10;
-        q++;
+        // q++;
         result.textContent = "Wrong!"
     }
     runningQuestion++;
@@ -119,8 +120,12 @@ function nextQuestion(){
 
 //save current user score
 function saveScore(){
+
+    clearInterval();
+
     questionContainerEl.classList.add("hidden");
     intlContainerEl.classList.remove("hidden");
+
     if (scoreEl >= 0){
     scoreEl.textContent = "You final score is: " + secondLeft;
     } else {
