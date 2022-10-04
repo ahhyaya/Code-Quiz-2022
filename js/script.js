@@ -85,7 +85,7 @@ function generateQuestion(){
 }
 
 let runningQuestion = 0;
-let q = question[runningQuestion];
+let q = questions[runningQuestion];
 
 
 choice1.addEventListener("click", checkAnswer);
@@ -114,7 +114,7 @@ choice3.addEventListener("click", nextQuestion);
 choice4.addEventListener("click", nextQuestion);
 
 function nextQuestion(){
-    generateQuestion(question[runningQuestion + 1]);
+    generateQuestion(questions[runningQuestion + 1]);
 }
 
 //save current user score
