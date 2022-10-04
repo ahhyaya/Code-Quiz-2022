@@ -148,8 +148,8 @@ function loadScores() {
     // finalScore = JSON.parse(finalScore) || {}; 
     // if (finalScore[initial] >= 0) {
     var newScore = {
-        score: secondLeft,
-        initial: initial
+        initial: initial,
+        score: secondLeft
     }
 // }else {
 //     finalScore[initial] = 0;
@@ -184,8 +184,11 @@ function ranking(initial) {
         intl.innerText = finalScore[i].initial;
         var sco = document.createElement("div");
         sco.setAttribute("class", "score-div");
-        intl.innerText = finalScore[i].secondLeft;
-
+        if (secondLeft >= 0) {
+        sco.innerText = finalScore[i].secondLeft;
+        } else {
+            sco.innerText = "0";
+        }
         highscoreEl.appendChild(intl);
         highscoreEl.appendChild(sco);
     }
