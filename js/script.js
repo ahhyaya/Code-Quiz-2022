@@ -85,7 +85,7 @@ function generateQuestion(){
 }
 
 let runningQuestion = 0;
-let q = questions[runningQuestion];
+let q = question[runningQuestion];
 
 
 choice1.addEventListener("click", checkAnswer);
@@ -114,7 +114,7 @@ choice3.addEventListener("click", nextQuestion);
 choice4.addEventListener("click", nextQuestion);
 
 function nextQuestion(){
-    generateQuestion(questions[runningQuestion + 1]);
+    generateQuestion(question[runningQuestion + 1]);
 }
 
 //save current user score
@@ -127,7 +127,7 @@ function saveScore(){
         scoreEl.textContent = "You final score is: 0 !";
     }
     timeEl.textContent = "Time: 0";
-    loadScores();
+    // loadScores();
 }
 
 
@@ -180,12 +180,13 @@ function ranking(initial) {
 viewRankingEl.addEventListener("click", ranking);
 
 //submit to save to local storage
-submitBtn.addEventListener("click", function(event) {
-    event.preventDefault();
-    var initials = document.querySelector("input").value;
+submitBtn.onclick = loadScores();
+// submitBtn.addEventListener("click", function(event) {
+//     event.preventDefault();
+//     var initials = document.querySelector("input").value;
 
-    ranking(initials); 
-});
+//     ranking(initials); 
+// });
 
 goBackBtn.addEventListener("click", function(){
     window.location.reload();
