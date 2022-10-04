@@ -1,7 +1,7 @@
 var startBtn = document.getElementById("start-btn");
 var startContainerEl = document.getElementById("start-container");
 var questionContainerEl =document.getElementById("question-container");
-var secondLeft = 25;
+var secondLeft = 60;
 var timeEl = document.getElementById("timer");
 var intlContainerEl = document.getElementById("intl-container");
 var scoreEl = document.getElementById("final-score");
@@ -34,6 +34,7 @@ function setTimer() {
         }
     }, 1000);
 }
+
 
 
 //startQuiz
@@ -95,19 +96,20 @@ choice4.addEventListener("click", checkAnswer);
 
 function checkAnswer(event) {
     
-    var choiceValue = event.target.dataset.answer;
-    console.log(choiceValue)
-    if (choiceValue == "correct") {
-        result.textContent = "Correct!"
-    } else {
-        secondLeft -= 10;
-        // q++;
-        result.textContent = "Wrong!"
-    }
-    runningQuestion++;
-    nextQuestion();
-    }
-    
+        var choiceValue = event.target.dataset.answer;
+        console.log(choiceValue)
+        if (choiceValue == "correct") {
+            result.textContent = "Correct!"
+        } else {
+            secondLeft -= 10;
+            // q++;
+            result.textContent = "Wrong!"
+        }
+        runningQuestion++;
+        nextQuestion();
+ }  
+
+
 //go to next question
 choice1.addEventListener("click", nextQuestion);
 choice2.addEventListener("click", nextQuestion);
@@ -133,6 +135,12 @@ function saveScore(){
     }
     timeEl.textContent = "Time: 0";
     // loadScores();
+
+    setTimeout(function() {
+        questionContainerEl.classList.add("hidden");
+        // document.getElementById("ranking-container").classList.remove("hidden");
+        document.getElementById("final-score").textContent = "You final score is: " + secondLeft;
+    }, 2000)
 }
 
 
