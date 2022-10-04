@@ -138,6 +138,7 @@ function loadScores() {
     }
 
     var initial = document.querySelector("#intl").value;
+    console.log(initial)
     // finalScore = JSON.parse(finalScore) || {}; 
     if (finalScore[initial] >= 0) {
     var newScore = {
@@ -148,23 +149,23 @@ function loadScores() {
     finalScore[initial] = 0;
 }
     finalScore.push(newScore);
-    finalScore.forEach(score => {
-        intlField.textContent = score.initial;
-        scoreField.textContent = score.score;
+    finalScore.forEach(newScore => {
+        intlField.innerText = newScore.initial;
+        scoreField.innerText = newScore.score;
     })
-//    localStorage.setItem('highscores', JSON.stringify(highscores));
+   localStorage.setItem('highscores', JSON.stringify(highscores));
  }
 
 
-//display players intl with score ranking
-function ranking(initials) {
+// display players intl with score ranking
+function ranking(initial) {
     rankingEl.classList.remove("hidden");
     intlContainerEl.classList.add("hidden");
     startContainerEl.classList.add("hidden");
     questionContainerEl.classList.add("hidden");
-    if (typeof initials == "string") {
+    if (typeof initial == "string") {
         var score = {
-            initials,secondLeft
+            initial,secondLeft
         }
         finalScore.push(score);
     }
