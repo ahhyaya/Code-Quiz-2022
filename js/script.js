@@ -154,7 +154,7 @@ function loadScores() {
         scoreField.innerText = newScore.score;
     })
    localStorage.setItem('highscores', JSON.stringify(highscores));
- }
+}
 
 
 // display players intl with score ranking
@@ -169,6 +169,20 @@ function ranking(initial) {
         }
         finalScore.push(score);
     }
+
+    var highscoreEl = document.getElementById("highscore");
+    highscoreEl.innerHTML = "";
+    for (i = 0; i < finalScore.length; i++) {
+        var intl = document.createElement("div");
+        intl.setAttribute("class", "intl-div");
+        intl.innerText = finalScore[i].initial;
+        var sco = document.createElement("div");
+        sco.setAttribute("class", "score-div");
+        intl.innerText = finalScore[i].secondLeft;
+
+        highscoreEl.appendChild(intl);
+        highscoreEl.appendChild(sco);
+    }
     localStorage.setItem("finalScore", JSON.stringify(finalScore));
     
 }
@@ -180,13 +194,15 @@ function ranking(initial) {
 viewRankingEl.addEventListener("click", ranking);
 
 //submit to save to local storage
-submitBtn.onclick = loadScores();
-// submitBtn.addEventListener("click", function(event) {
-//     event.preventDefault();
-//     var initials = document.querySelector("input").value;
+// submitBtn.onclick = loadScores();
 
-//     ranking(initials); 
-// });
+
+submitBtn.addEventListener("click", function(event) {
+    event.preventDefault();
+    var initials = document.querySelector("input").value;
+
+    ranking(initials); 
+});
 
 goBackBtn.addEventListener("click", function(){
     window.location.reload();
