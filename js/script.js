@@ -18,7 +18,9 @@ var rankingEl = document.getElementById("ranking-container");
 var viewRankingEl = document.getElementById("view-score");
 var goBackBtn = document.getElementById("restart-btn");
 var clearBtn = document.getElementById("clear-btn");
-var finalScore = JSON.parse(localStorage.getItem("final-score")) || [];
+var finalScore = JSON.parse(localStorage.getItem("finalScore")) || [];
+var intlField = document.getElementById(".userIntls");
+var scoreField = document.getElementById(".userScores");
 
 startBtn.addEventListener("click",startQuiz);
 // timer
@@ -78,6 +80,7 @@ function generateQuestion(){
         }
         } else {
             saveScore();
+            
 }
 }
 
@@ -124,6 +127,7 @@ function saveScore(){
         scoreEl.textContent = "You final score is: 0 !";
     }
     timeEl.textContent = "Time: 0";
+    loadScores();
 }
 
 
@@ -133,8 +137,8 @@ function loadScores() {
         return false;
     }
 
-    var initial = document.querySelector("intl").value;
-    finalScore = JSON.parse(finalScore) || {};
+    var initial = document.querySelector("#intl").value;
+    // finalScore = JSON.parse(finalScore) || {}; 
     if (finalScore[initial] >= 0) {
     var newScore = {
         score: secondLeft,
@@ -145,10 +149,10 @@ function loadScores() {
 }
     finalScore.push(newScore);
     finalScore.forEach(score => {
-        initialField.innerText = score.initial;
-        scoreField.innerText = score.score;
+        intlField.textContent = score.initial;
+        scoreField.textContent = score.score;
     })
-   localStorage.setItem('highscores', JSON.stringify(highscores));
+//    localStorage.setItem('highscores', JSON.stringify(highscores));
  }
 
 
@@ -165,6 +169,7 @@ function ranking(initials) {
         finalScore.push(score);
     }
     localStorage.setItem("finalScore", JSON.stringify(finalScore));
+    
 }
 
 
