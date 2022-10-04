@@ -205,9 +205,9 @@ viewRankingEl.addEventListener("click", ranking);
 
 submitBtn.addEventListener("click", function(event) {
     event.preventDefault();
-    var initials = document.querySelector("input").value;
+    var initial = document.querySelector("#intl").value;
 
-    ranking(initials); 
+    ranking(initial); 
 });
 
 goBackBtn.addEventListener("click", function(){
@@ -216,6 +216,7 @@ goBackBtn.addEventListener("click", function(){
 
 clearBtn.addEventListener("click", function(){
     localStorage.clear();
+    document.getElementById("highscore").innerHTML = "";
 });
 
 
