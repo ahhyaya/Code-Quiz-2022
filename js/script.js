@@ -155,10 +155,10 @@ function loadScores() {
 //     finalScore[initial] = 0;
 // }
     finalScore.push(newScore);
-    finalScore.forEach(newScore => {
-        intlField.innerText = newScore.initial;
-        scoreField.innerText = newScore.score;
-    })
+    // finalScore.forEach(newScore => {
+    //     intlField.innerText = newScore.initial;
+    //     scoreField.innerText = newScore.score;
+    // })
 //    localStorage.setItem('highscores', JSON.stringify(highscores));
 }
 
