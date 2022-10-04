@@ -91,6 +91,11 @@ p,input {
     background-color: var(--backgroud-color);
 }
 
+.highscore-list {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+  }
 
 .start-btn {
     width:auto;
@@ -160,7 +165,7 @@ p,input {
     color: rgba(0, 0, 0, 0.732);
   }
 
-  .result {
+.result {
     color: rgb(255, 0, 0);
     text-shadow:12px -2px 7px black;
     font-weight:900;
@@ -169,8 +174,4 @@ p,input {
     margin-top: 15px;
   }
 
-  /* .highscore-list {
-    display: inline-block;
-    vertical-align: middle;
-  } */
-
+ 
