@@ -9,67 +9,61 @@
     <link rel="stylesheet" href="./css/style.css" />
 </head>
 
-<body class = container>
-    <header id = "header-container">
+<body class=container>
+    <header id="header-container">
         <!-- to show timer and view high score link -->
         <div class="scores">
-            <a id = "view-score" href ="#">View High Score</a>
+            <a id="view-score" href="#">View High Score</a>
         </div>
-        <div class = "timer" id="timer"></div>
-    
+        <div class="timer" id="timer"></div>
+
     </header>
 
-    <section class = "start-quiz" id = "start-container">
+    <section class="start-quiz" id="start-container">
         <!-- start page -->
-        <h1 class = quiz-title>Timed Coding Quiz Challenge</h1><br>
+        <h1 class=quiz-title>Timed Coding Quiz Challenge</h1><br>
         <p>Try to answer the following code-related questions within the time limit.</p>
         <p>Keep in mind that incorrect answers will penalize your score/time by 10 seconds!</p>
-        <button id = "start-btn" class = "start-btn btn">Start Quiz</button>
+        <button id="start-btn" class="start-btn btn">Start Quiz</button>
     </section>
 
     <!-- question page -->
-    <section class = "hidden" id = "question-container">
+    <section class="hidden" id="question-container">
         <h1 id="questions">Question</h1>
-        <div id = "choices">
-        <button class = "choice-btn btn" id="1" data-answer = "correct">Choice 1</button>
-        <button class = "choice-btn btn" id="2" data-answer = "wrong">Choice 2</button>
-        <button class = "choice-btn btn" id="3" data-answer = "wrong">Choice 3</button>
-        <button class = "choice-btn btn" id="4" data-answer = "wrong">Choice 4</button>
+        <div id="choices">
+            <button class="choice-btn btn" id="1" data-answer="correct">Choice 1</button>
+            <button class="choice-btn btn" id="2" data-answer="wrong">Choice 2</button>
+            <button class="choice-btn btn" id="3" data-answer="wrong">Choice 3</button>
+            <button class="choice-btn btn" id="4" data-answer="wrong">Choice 4</button>
         </div>
         <hr>
         <p class="result"></p>
     </section>
 
-    <!-- check answer -->
-    <!-- <section class = "check-answer hidden">
-        
-    </section> -->
 
     <!-- save score after quiz end -->
-    <section class = "intl hidden" id = "intl-container">
-        <form class = "submit">
-            <h2 id = "final-score" class = "final-score"></h2>
-                <label class = "intl-label">Please Enter Your Initial: </label>
-            <input type="text" id = "intl" placeholder="Enter you initial">
-            <button id = "submit-btn" class = "submit-btn btn">Submit</button>
+    <section class="intl hidden" id="intl-container">
+        <form class="submit">
+            <h2 id="final-score" class="final-score"></h2>
+            <label class="intl-label">Please Enter Your Initial: </label>
+            <input type="text" id="intl" placeholder="Enter you initial">
+            <button id="submit-btn" class="submit-btn btn">Submit</button>
         </form>
     </section>
 
     <!-- high score ranking page -->
-    <section class = "ranking hidden" id = "ranking-container">
-        <div class = "ranking">
+    <section class="ranking hidden" id="ranking-container">
+        <div class="ranking">
             <h1>High Scores</h1>
-            <div id = "highscore" class = "highscore-list">
-                
+            <div id="highscore" class="highscore-list">
             </div>
-            <!-- <div class = "userIntls"></div>
-            <div class = "userScores"></div> -->
-            <button id = "restart-btn" class = "restart-btn btn">Go Back</button>
-            <button id = "clear-btn" class = "clear-btn btn">Clear High Scores</button>
+            <button id="restart-btn" class="restart-btn btn">Go Back</button>
+            <button id="clear-btn" class="clear-btn btn">Clear High Scores</button>
         </div>
     </section>
 
-    <script src = "./js/questions.js"></script>
-    <script src = "./js/script.js"></script>
+    <script src="./js/questions.js"></script>
+    <script src="./js/script.js"></script>
 </body>
+
 </html>

@@ -1,6 +1,6 @@
 var startBtn = document.getElementById("start-btn");
 var startContainerEl = document.getElementById("start-container");
-var questionContainerEl =document.getElementById("question-container");
+var questionContainerEl = document.getElementById("question-container");
 var secondLeft = 60;
 var timeEl = document.getElementById("timer");
 var intlContainerEl = document.getElementById("intl-container");
@@ -22,10 +22,10 @@ var finalScore = JSON.parse(localStorage.getItem("finalScore")) || [];
 var intlField = document.getElementById(".userIntls");
 var scoreField = document.getElementById(".userScores");
 
-startBtn.addEventListener("click",startQuiz);
+startBtn.addEventListener("click", startQuiz);
 // timer
 function setTimer() {
-    var timerInterval = setInterval(function() {
+    var timerInterval = setInterval(function () {
         secondLeft--;
         timeEl.textContent = "Time: " + secondLeft;
         if (secondLeft <= 0) {
@@ -43,18 +43,16 @@ function startQuiz() {
     questionContainerEl.classList.remove("hidden");
     setTimer();
     generateQuestion();
-    // checkAnswer();
-    // nextQuestion();
 }
 
 
 //generate question
-function generateQuestion(){
+function generateQuestion() {
     if (runningQuestion <= 10) {
         var q = question[runningQuestion];
-    
-        questions.innerHTML = "<p>"+ q.question +"</p>";
-    
+
+        questions.innerHTML = "<p>" + q.question + "</p>";
+
         choice1.innerHTML = q.choice1;
         if (q.choice1 == q.correct) {
             choice1.dataset.answer = "correct";
@@ -79,10 +77,10 @@ function generateQuestion(){
         } else {
             choice4.dataset.answer = "wrong";
         }
-        } else {
-       saveScore();
-            
-}
+    } else {
+        saveScore();
+
+    }
 }
 
 let runningQuestion = 0;
@@ -95,19 +93,18 @@ choice3.addEventListener("click", checkAnswer);
 choice4.addEventListener("click", checkAnswer);
 
 function checkAnswer(event) {
-    
-        var choiceValue = event.target.dataset.answer;
-        console.log(choiceValue)
-        if (choiceValue == "correct") {
-            result.textContent = "Correct!"
-        } else {
-            secondLeft -= 10;
-            // q++;
-            result.textContent = "Wrong!"
-        }
-        runningQuestion++;
-        nextQuestion();
- }  
+
+    var choiceValue = event.target.dataset.answer;
+    console.log(choiceValue)
+    if (choiceValue == "correct") {
+        result.textContent = "Correct!"
+    } else {
+        secondLeft -= 10;
+        result.textContent = "Wrong!"
+    }
+    runningQuestion++;
+    nextQuestion();
+}
 
 
 //go to next question
@@ -116,29 +113,27 @@ choice2.addEventListener("click", nextQuestion);
 choice3.addEventListener("click", nextQuestion);
 choice4.addEventListener("click", nextQuestion);
 
-function nextQuestion(){
+function nextQuestion() {
     generateQuestion(question[runningQuestion + 1]);
 }
 
 //save current user score
-function saveScore(){
+function saveScore() {
 
     clearInterval();
 
     questionContainerEl.classList.add("hidden");
     intlContainerEl.classList.remove("hidden");
 
-    if (scoreEl >= 0){
-    scoreEl.textContent = "You final score is: " + secondLeft;
+    if (scoreEl >= 0) {
+        scoreEl.textContent = "You final score is: " + secondLeft;
     } else {
         scoreEl.textContent = "You final score is: 0 !";
     }
     timeEl.textContent = "Time: 0";
-    // loadScores();
 
-    setTimeout(function() {
+    setTimeout(function () {
         questionContainerEl.classList.add("hidden");
-        // document.getElementById("ranking-container").classList.remove("hidden");
         document.getElementById("final-score").textContent = "You final score is: " + secondLeft;
     }, 2000)
 }
@@ -146,28 +141,18 @@ function saveScore(){
 
 //load final scores to view high score list
 function loadScores() {
-    if (!finalScore){
+    if (!finalScore) {
         return false;
     }
 
     finalScore = JSON.parse(finalScore);
     var initial = document.querySelector("#intl").value;
     console.log(initial)
-    // finalScore = JSON.parse(finalScore) || {}; 
-    // if (finalScore[initial] >= 0) {
     var newScore = {
         initial: initial,
         score: secondLeft
     }
-// }else {
-//     finalScore[initial] = 0;
-// }
     finalScore.push(newScore);
-    // finalScore.forEach(newScore => {
-    //     intlField.innerText = newScore.initial;
-    //     scoreField.innerText = newScore.score;
-    // })
-//    localStorage.setItem('highscores', JSON.stringify(highscores));
 }
 
 
@@ -179,7 +164,7 @@ function ranking(initial) {
     questionContainerEl.classList.add("hidden");
     if (typeof initial == "string") {
         var score = {
-            initial,secondLeft
+            initial, secondLeft
         }
         finalScore.push(score);
     }
@@ -193,7 +178,7 @@ function ranking(initial) {
         var sco = document.createElement("div");
         sco.setAttribute("class", "score-div");
         if (secondLeft >= 0) {
-        sco.innerText = finalScore[i].secondLeft;
+            sco.innerText = finalScore[i].secondLeft;
         } else {
             sco.innerText = "0";
         }
@@ -201,7 +186,7 @@ function ranking(initial) {
         highscoreEl.appendChild(sco);
     }
     localStorage.setItem("finalScore", JSON.stringify(finalScore));
-    
+
 }
 
 
@@ -211,21 +196,18 @@ function ranking(initial) {
 viewRankingEl.addEventListener("click", ranking);
 
 //submit to save to local storage
-// submitBtn.onclick = loadScores();
-
-
-submitBtn.addEventListener("click", function(event) {
+submitBtn.addEventListener("click", function (event) {
     event.preventDefault();
     var initial = document.querySelector("#intl").value;
 
-    ranking(initial); 
+    ranking(initial);
 });
 
-goBackBtn.addEventListener("click", function(){
+goBackBtn.addEventListener("click", function () {
     window.location.reload();
 });
 
-clearBtn.addEventListener("click", function(){
+clearBtn.addEventListener("click", function () {
     localStorage.clear();
     document.getElementById("highscore").innerHTML = "";
 });
